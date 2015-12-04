@@ -10,8 +10,7 @@ import static com.emarte.regurgitator.extensions.web.WebConfigConstants.*;
 import static java.lang.Integer.parseInt;
 
 public class HttpCallThroughJsonLoader implements JsonLoader<Step> {
-    private static Log log = Log.getLog(HttpCallThroughJsonLoader.class);
-
+    private static final Log log = Log.getLog(HttpCallThroughJsonLoader.class);
 	private static final JsonLoaderUtil<JsonLoader<Step>> loaderUtil = new JsonLoaderUtil<JsonLoader<Step>>();
 
 	@Override
