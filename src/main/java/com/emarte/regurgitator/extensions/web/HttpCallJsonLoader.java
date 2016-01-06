@@ -5,7 +5,7 @@ import net.sf.json.JSONObject;
 
 import java.util.Set;
 
-import static com.emarte.regurgitator.core.JsonConfigUtil.loadId;
+import static com.emarte.regurgitator.core.JsonConfigUtil.*;
 import static com.emarte.regurgitator.extensions.web.WebConfigConstants.*;
 import static java.lang.Integer.parseInt;
 
@@ -23,7 +23,14 @@ public class HttpCallJsonLoader implements JsonLoader<Step> {
 			responseProcessing = loaderUtil.deriveLoader(responseProcessingObject).load(responseProcessingObject, allIds);
 		}
 
+		String username = loadOptionalStr(jsonObject, USERNAME);
+		String password = loadOptionalStr(jsonObject, PASSWORD);
+
+		if((username == null && password != null) || (username != null && password == null)) {
+			throw new RegurgitatorException("Both username and password (or neither) required");
+		}
+
 		log.debug("Loaded HttpCall '" + id + "'");
-		return new HttpCall(id, new HttpMessageProxy(jsonObject.getString(HOST), parseInt(jsonObject.getString(PORT))), responseProcessing);
+		return new HttpCall(id, new HttpMessageProxy(loadMandatoryStr(jsonObject, HOST), parseInt(loadMandatoryStr(jsonObject, PORT)), username, password), responseProcessing);
 	}
 }
