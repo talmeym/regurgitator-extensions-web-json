@@ -9,8 +9,8 @@ import static com.emarte.regurgitator.core.JsonConfigUtil.loadId;
 import static com.emarte.regurgitator.extensions.web.WebConfigConstants.*;
 import static java.lang.Integer.parseInt;
 
-public class HttpCallThroughJsonLoader implements JsonLoader<Step> {
-    private static final Log log = Log.getLog(HttpCallThroughJsonLoader.class);
+public class HttpCallJsonLoader implements JsonLoader<Step> {
+    private static final Log log = Log.getLog(HttpCallJsonLoader.class);
 	private static final JsonLoaderUtil<JsonLoader<Step>> loaderUtil = new JsonLoaderUtil<JsonLoader<Step>>();
 
 	@Override
@@ -23,7 +23,7 @@ public class HttpCallThroughJsonLoader implements JsonLoader<Step> {
 			responseProcessing = loaderUtil.deriveLoader(responseProcessingObject).load(responseProcessingObject, allIds);
 		}
 
-		log.debug("Loaded HttpCallThrough '" + id + "'");
-		return new HttpCallThrough(id, new HttpMessageProxy(jsonObject.getString(HOST), parseInt(jsonObject.getString(PORT))), responseProcessing);
+		log.debug("Loaded HttpCall '" + id + "'");
+		return new HttpCall(id, new HttpMessageProxy(jsonObject.getString(HOST), parseInt(jsonObject.getString(PORT))), responseProcessing);
 	}
 }
