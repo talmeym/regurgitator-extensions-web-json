@@ -5,7 +5,7 @@ import com.emarte.regurgitator.core.*;
 import java.util.*;
 
 public class ExtensionsWebJsonPackageMap extends AbstractJsonPackageMap {
-	private static final List<String> kinds = Arrays.asList("http-call");
+	private static final List<String> kinds = Arrays.asList("http-call", "query-param-processor");
 
 	public ExtensionsWebJsonPackageMap() {
 		addPackageMapping(kinds, "com.emarte.regurgitator.extensions.web");
