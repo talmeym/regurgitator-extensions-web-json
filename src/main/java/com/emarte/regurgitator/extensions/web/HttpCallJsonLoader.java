@@ -1,10 +1,11 @@
 package com.emarte.regurgitator.extensions.web;
 
 import com.emarte.regurgitator.core.*;
-import net.sf.json.JSONObject;
+import net.sf.json.*;
 
-import java.util.Set;
+import java.util.*;
 
+import static com.emarte.regurgitator.core.CoreConfigConstants.STEPS;
 import static com.emarte.regurgitator.core.JsonConfigUtil.*;
 import static com.emarte.regurgitator.extensions.web.WebConfigConstants.*;
 import static java.lang.Integer.parseInt;
@@ -16,11 +17,14 @@ public class HttpCallJsonLoader implements JsonLoader<Step> {
 	@Override
 	public Step load(JSONObject jsonObject, Set<Object> allIds) throws RegurgitatorException {
 		String id = loadId(jsonObject, allIds);
-		Step responseProcessing = null;
+		List<Step> steps = new ArrayList<Step>();
+		JSONArray jsonArray = loadOptionalArray(jsonObject, STEPS);
 
-		if(jsonObject.containsKey(PROCESS_RESPONSE)) {
-			JSONObject responseProcessingObject = jsonObject.getJSONObject(PROCESS_RESPONSE);
-			responseProcessing = loaderUtil.deriveLoader(responseProcessingObject).load(responseProcessingObject, allIds);
+		if(jsonArray != null) {
+			for(Iterator iterator = jsonArray.iterator(); iterator.hasNext(); ) {
+				JSONObject object = (JSONObject) iterator.next();
+				steps.add(loaderUtil.deriveLoader(object).load(object, allIds));
+			}
 		}
 
 		String username = loadOptionalStr(jsonObject, USERNAME);
@@ -31,6 +35,6 @@ public class HttpCallJsonLoader implements JsonLoader<Step> {
 		}
 
 		log.debug("Loaded HttpCall '" + id + "'");
-		return new HttpCall(id, new HttpMessageProxy(loadMandatoryStr(jsonObject, HOST), parseInt(loadMandatoryStr(jsonObject, PORT)), username, password), responseProcessing);
+		return new HttpCall(id, new HttpMessageProxy(loadMandatoryStr(jsonObject, HOST), parseInt(loadMandatoryStr(jsonObject, PORT)), username, password), steps);
 	}
 }
