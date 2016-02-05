@@ -35,6 +35,6 @@ public class HttpCallJsonLoader implements JsonLoader<Step> {
 		}
 
 		log.debug("Loaded HttpCall '" + id + "'");
-		return new HttpCall(id, new HttpMessageProxy(loadMandatoryStr(jsonObject, HOST), parseInt(loadMandatoryStr(jsonObject, PORT)), username, password), steps);
+		return new HttpCall(id, new HttpMessageProxy(new HttpClientWrapper(loadMandatoryStr(jsonObject, HOST), parseInt(loadMandatoryStr(jsonObject, PORT)), username, password)), steps);
 	}
 }
