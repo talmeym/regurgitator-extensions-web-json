@@ -87,6 +87,36 @@ the ``steps`` property of the http-call step can contain zero or more "response 
 
 ### create-http-response
 
+a create-http-response step returns a response from regurgitator, ensuring that ``response-metadata`` parameters are set for ``content-type`` and ``status-code``.
+
+```json
+{
+    "kind": "create-http-response",
+    "source": "response",
+    "content-type": "application/json",
+    "status-code": "200"
+}
+```
+
+this step is primarily a convenience step, agregating following core config:
+
+```json
+{
+    "kind": "create-parameter",
+    "name": "response-metadata:content-type",
+    "value": "application/json",
+},
+{
+    "kind": "create-parameter",
+    "name": "response-metadata:status-code",
+    "value": "200"
+},
+{
+    "kind": "create-response",
+    "source": "response"
+}
+```
+
 ## extension web constructs in json
 
 ### query-param-processor
