@@ -18,6 +18,16 @@ an http-call step make an outward http call
 </rgw:http-call>
 ```
 
+whilst host, port and user credentials are specified in the xml, all other attributes of the call are defined by parameters within the message object, as listed below:
+
+|parameter|call attribute|default (if not specified)|
+|:---|:---|:---|
+|request-metadata:method|method|GET|
+|request-metadata:path-info|path|/|
+|request-payload:text|[payload]|not set|
+|request-metadata:content-type|content type|not set|
+|request-metadata:character-encoding|character encoding|not set|
+
 ### create-http-response
 
 ## extension web constructs in json
