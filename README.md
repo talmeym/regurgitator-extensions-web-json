@@ -25,7 +25,7 @@ whilst host, port and user credentials are specified in the xml, all other attri
 |``request-metadata``|``method``|method|GET|
 |``request-metadata``|``path-info``|path|/|
 |``request-headers``|``[header name]`` | http header |not set|
-|``request-payload``|``text`` (for POST calls) |[payload]|not set|
+|``request-payload``|``text`` (for POST calls) |payload|not set|
 |``request-metadata``|``content-type`` (for POST calls) |content type|not set|
 |``request-metadata``|``character-encoding`` (for POST calls) |character encoding|not set|
 
