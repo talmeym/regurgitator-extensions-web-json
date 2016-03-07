@@ -18,15 +18,20 @@ an http-call step make an outward http call
 </rgw:http-call>
 ```
 
-whilst host, port and user credentials are specified in the xml, all other attributes of the call are defined by parameters within the message object, as listed below:
+whilst host, port and user credentials are specified in the xml, all other attributes of the call are set from parameters within the message object, as listed below:
 
-|parameter|call attribute|default (if not specified)|
-|:---|:---|:---|
-|``request-metadata:method``|method|GET|
-|``request-metadata:path-info``|path|/|
-|``request-payload:text`` (for POST calls) |[payload]|not set|
-|``request-metadata:content-type`` (for POST calls) |content type|not set|
-|``request-metadata:character-encoding`` (for POST calls) |character encoding|not set|
+|context|parameter|call attribute|default (if not specified)|
+|:---|:---|:---|:---|
+|``request-metadata``|``method``|method|GET|
+|``request-metadata``|``path-info``|path|/|
+|``request-headers``|``[header name]`` | http headers |not set|
+|``request-payload``|``text`` (for POST calls) |[payload]|not set|
+|``request-metadata``|``content-type`` (for POST calls) |content type|not set|
+|``request-metadata``|``character-encoding`` (for POST calls) |character encoding|not set|
+
+if using the ``RegurgitatorServlet`` to mock http requests, if an http-call step has not been placed with an isolated sequence step, then upon execution, the message object given to the http-call step will already contain the ``request-metadata`` context from the incoming http call, and will therefore act as an http proxy, making an http call identical to the one received by the ``RegurgitatorServlet``, except redirected ot a different endpoint.
+
+If you wish the http-call step to make an independant call, then the step should be placed within an isolated sequence, and should be preceeded by ``create-request`` steps to set the necessary method, path and header metadata.
 
 ### create-http-response
 
