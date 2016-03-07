@@ -18,7 +18,7 @@ an http-call step make an outward http call
 </rgw:http-call>
 ```
 
-whilst host, port and user credentials are specified in the xml, all other attributes of the call are set from parameters within the message object, as listed below:
+whilst host, port and (optional) user credentials are specified in the xml, all other attributes of the call are set from parameters within the message object, as listed below:
 
 |context|parameter|call attribute|default (if not specified)|
 |:---|:---|:---|:---|
