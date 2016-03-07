@@ -98,7 +98,7 @@ a create-http-response step returns a response from regurgitator, allowing ``res
 }
 ```
 
-this step is primarily a convenience step, agregating following core config:
+this step is primarily a convenience step, agregating the following core config:
 
 ```json
 {
