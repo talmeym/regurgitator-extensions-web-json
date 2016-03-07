@@ -87,7 +87,7 @@ the ``steps`` property of the http-call step can contain zero or more "response 
 
 ### create-http-response
 
-a create-http-response step returns a response from regurgitator, allowing ``response-metadata`` parameters to be concisely set set for ``content-type`` and ``status-code``.
+a create-http-response step returns a response from regurgitator, concisely allowing ``response-metadata`` parameters to be set for ``content-type`` and ``status-code``.
 
 ```json
 {
