@@ -8,6 +8,8 @@ start your reading here: [regurgitator-all](http://github.com/talmeym/regurgitat
 
 ### http-call 
 
+an http-call step makes an outward http call
+
 ```xml
 <rgw:http-call host="http://otherservice.com" port="80" username="username" password="password">
 	<rg:create-response source="response-metadata:status-code">
