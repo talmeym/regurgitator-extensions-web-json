@@ -29,6 +29,8 @@ while host, port and (optional) user credentials are specified in the xml, all o
 |``request-metadata``|``content-type`` (for POST calls) |content type|not set|
 |``request-metadata``|``character-encoding`` (for POST calls) |character encoding|not set|
 
+#### http proxy
+
 if using the ``RegurgitatorServlet`` to mock http requests, an http-call step not placed within an isolated sequence will, upon execution, be given a message object already containing the ``request-metadata`` context from the incoming http call, and will therefore act as an http proxy, making an http call identical to the one received by the ``RegurgitatorServlet``, except redirected to a new endpoint. this is useful for forwarding on any calls you wish not to mock / implement.
 
 If instead you wish the http-call step to make an independant call, then the step should be placed within an isolated sequence, and should be preceeded by ``create-request`` steps to set the necessary method, path and header metadata.
