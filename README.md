@@ -47,7 +47,7 @@ If instead you wish the http-call step to make an independant call, then the ste
 </rg:sequence>
 ```
 
-the body of the http-call step can contain zero or more "response processing" steps, to be run when a response is received from the outgoing http call. it is given a new message object containing all the metadata associated with the response (``response-metadata``, ``response-payload`` etc.) as well as the ``parameters`` and ``session`` contexts of the original message. 
+the body of the http-call step can contain zero or more "response processing" steps, to be run when a response is received from the outgoing http call. these steps are given a new message object containing all the metadata associated with the http response (contexts such as ``response-metadata``, ``response-payload`` etc.) as well as the ``parameters`` and ``session`` contexts of the original message. 
 
 ### create-http-response
 
