@@ -10,15 +10,27 @@ start your reading here: [regurgitator-all](http://github.com/talmeym/regurgitat
 
 an http-call step make an outward http call
 
-```xml
-<rgw:http-call host="http://otherservice.com" port="80" username="username" password="password">
-	<rg:create-response source="response-metadata:status-code">
-		<rge:freemarker-processor>http call returned ${value}</rge:freemarker-processor>
-	</rg:create-response>
-</rgw:http-call>
+```json
+{
+    "kind": "http-call",
+    "host": "http://otherservice.com",
+    "port": "80",
+    "username": "username",
+    "password": "password",
+    "steps": [
+        {
+            "kind": "create-response",
+            "source": "response-metadata:status-code",
+            "processor": {
+                "kind": "freemarker-processor",
+                "value": "http call returned ${value}"
+            }
+        }
+    ]
+}
 ```
 
-while host, port and (optional) user credentials are specified in the xml, all other attributes of the call are set from parameters within the message object, as listed below:
+while host, port and (optional) user credentials are specified in the json, all other attributes of the call are set from parameters within the message object, as listed below:
 
 |context|parameter|call attribute|default (if not specified)|
 |:---|:---|:---|:---|
@@ -35,19 +47,43 @@ if using the ``RegurgitatorServlet`` to mock http requests, an http-call step no
 
 If instead you wish the http-call step to make an independant call, then the step should be placed within an isolated sequence, and should be preceeded by ``create-request`` steps to set the necessary method, path and header metadata.
 
-```xml
-<rg:sequence isolate="true">
-	<rg:create-parameter name="request-metadata:method" value="GET"/>
-	<rg:create-parameter name="request-metadata:path-info" value="/service-api"/>
-	<rgw:http-call host="http://otherservice.com" port="80" username="username" password="password">
-		<rg:create-response source="response-metadata:status-code">
-			<rge:freemarker-processor>http call returned ${value}</rge:freemarker-processor>
-		</rg:create-response>
-	</rgw:http-call>
-</rg:sequence>
+```json
+{
+    "kind": "sequence",
+    "isolate": "true",
+    "steps": [
+        {
+            "kind": "create-parameter",
+            "name": "request-metadata:method",
+            "value": "GET"
+        },
+        {
+            "kind": "create-parameter",
+            "name": "request-metadata:path-info",
+            "value": "/service-api"
+        },
+        {
+            "kind": "http-call",
+            "host": "http://otherservice.com",
+            "port": "80",
+            "username": "username",
+            "password": "password",
+            "steps": [
+                {
+                    "kind": "create-response",
+                    "source": "response-metadata:status-code",
+                    "processor": {
+                        "kind": "freemarker-processor",
+                        "value": "http call returned ${value}"
+                    }
+                }
+            ]
+        }
+    ]
+}
 ```
 
-the body of the http-call step can contain zero or more "response processing" steps, to be run when a response is received from the outgoing http call. these steps are given a new message object containing all the metadata associated with the http response (contexts such as ``response-metadata``, ``response-payload`` etc.) as well as the ``parameters`` and ``session`` contexts of the original message. 
+the ``steps`` property of the http-call step can contain zero or more "response processing" steps, to be run when a response is received from the outgoing http call. these steps are given a new message object containing all the metadata associated with the http response (contexts such as ``response-metadata``, ``response-payload`` etc.) as well as the ``parameters`` and ``session`` contexts of the original message. 
 
 ### create-http-response
 
