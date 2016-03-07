@@ -8,6 +8,17 @@ start your reading here: [regurgitator-all](http://github.com/talmeym/regurgitat
 
 ### http-call 
 
+```xml
+<rg:create-parameter name="request-metadata:method" value="GET"/>
+<rg:create-parameter name="request-metadata:path-info" value="/service-api"/>
+
+<rgw:http-call host="http://otherservice.com" port="80" username="username" password="password">
+	<rg:create-response source="response-metadata:status-code">
+		<rge:freemarker-processor>http call returned ${value}</rge:freemarker-processor>
+	</rg:create-response>
+</rgw:http-call>
+```
+
 ### create-http-response
 
 ## extension web constructs in json
