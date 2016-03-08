@@ -120,3 +120,18 @@ this step is primarily a convenience step, agregating the following core config:
 ## extension web constructs in json
 
 ### query-param-processor
+
+a query-param-processor processes a parameter value, extracting a value from within an http query string.
+
+```json
+{
+    "kind": "create-parameter",
+    "value": "something=this&id=that&third=another",
+    "processor": {
+        "kind": "query-param-processor",
+        "key": "id"
+    }
+}
+```
+
+if the key appears in the query string more than once, the processor will aggregate the values into a collection.
