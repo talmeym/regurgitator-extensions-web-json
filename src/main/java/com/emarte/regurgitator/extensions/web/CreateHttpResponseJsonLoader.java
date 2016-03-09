@@ -6,8 +6,7 @@ import net.sf.json.JSONObject;
 import java.util.Set;
 
 import static com.emarte.regurgitator.core.JsonConfigUtil.loadOptionalStr;
-import static com.emarte.regurgitator.extensions.web.ExtensionsWebConfigConstants.CONTENT_TYPE;
-import static com.emarte.regurgitator.extensions.web.ExtensionsWebConfigConstants.STATUS_CODE;
+import static com.emarte.regurgitator.extensions.web.ExtensionsWebConfigConstants.*;
 
 public class CreateHttpResponseJsonLoader implements JsonLoader<CreateHttpResponse> {
 	private CreateResponseJsonLoader responseJsonLoader = new CreateResponseJsonLoader();

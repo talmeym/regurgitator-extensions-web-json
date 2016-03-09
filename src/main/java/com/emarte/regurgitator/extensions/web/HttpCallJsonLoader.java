@@ -7,11 +7,12 @@ import java.util.*;
 
 import static com.emarte.regurgitator.core.CoreConfigConstants.STEPS;
 import static com.emarte.regurgitator.core.JsonConfigUtil.*;
+import static com.emarte.regurgitator.core.Log.getLog;
 import static com.emarte.regurgitator.extensions.web.WebConfigConstants.*;
 import static java.lang.Integer.parseInt;
 
 public class HttpCallJsonLoader implements JsonLoader<Step> {
-    private static final Log log = Log.getLog(HttpCallJsonLoader.class);
+    private static final Log log = getLog(HttpCallJsonLoader.class);
 	private static final JsonLoaderUtil<JsonLoader<Step>> loaderUtil = new JsonLoaderUtil<JsonLoader<Step>>();
 
 	@Override

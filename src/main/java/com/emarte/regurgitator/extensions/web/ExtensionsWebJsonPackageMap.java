@@ -1,6 +1,6 @@
 package com.emarte.regurgitator.extensions.web;
 
-import com.emarte.regurgitator.core.*;
+import com.emarte.regurgitator.core.AbstractJsonPackageMap;
 
 import java.util.*;
 
