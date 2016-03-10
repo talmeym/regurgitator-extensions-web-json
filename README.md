@@ -4,6 +4,8 @@ regurgitator is a modular, light-weight, extendable java-based processing framew
 
 start your reading here: [regurgitator-all](http://github.com/talmeym/regurgitator-all#regurgitator)
 
+read more about regurgitator in json here: [regurgitator-core-json](http://github.com/talmeym/regurgitator-core-json#json-configuration-of-regurgitator)
+
 ## extension web steps in json
 
 ### http-call 
