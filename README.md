@@ -128,7 +128,8 @@ a create-file-response step returns a response from regurgitator, with it's cont
     "kind": "create-file-response",
     "source": "request-metadata:path-info",
     "path-prefix": "/assets"
-}```
+}
+```
 
 the optional ``path-prefix`` attribute specifies a path fragment to be prefixed to the value found in the parameter, making a request for ``/file.xml`` actually load and return ``classpath:/assets/file.xml``
 
