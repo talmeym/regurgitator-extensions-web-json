@@ -10,7 +10,7 @@ import static com.emarte.regurgitator.core.JsonConfigUtil.*;
 import static com.emarte.regurgitator.extensions.web.WebConfigConstants.PATH_PREFIX;
 
 public class CreateFileResponseJsonLoader implements JsonLoader<CreateFileResponse> {
-	private static Log log = Log.getLog(CreateFileResponseJsonLoader.class);
+	private static final Log log = Log.getLog(CreateFileResponseJsonLoader.class);
 
 	@Override
 	public CreateFileResponse load(JSONObject jsonObject, Set<Object> allIds) throws RegurgitatorException {
