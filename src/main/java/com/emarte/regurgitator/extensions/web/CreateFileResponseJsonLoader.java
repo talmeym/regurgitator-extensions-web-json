@@ -22,7 +22,7 @@ public class CreateFileResponseJsonLoader implements JsonLoader<CreateFileRespon
         String source = loadMandatoryStr(jsonObject, SOURCE);
         String pathPrefix = loadOptionalStr(jsonObject, PATH_PREFIX);
         ContextLocation location = source != null ? new ContextLocation(source) : null;
-        log.debug("Loaded file response '" + id + "'");
+        log.debug("Loaded file response '{}'", id);
         return new CreateFileResponse(id, new ValueSource(location, null), pathPrefix);
     }
 }
