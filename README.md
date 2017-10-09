@@ -47,7 +47,7 @@ while host, port and (optional) user credentials are specified in the json, all 
 
 if using the ``RegurgitatorServlet`` to mock http requests, an http-call step not placed within an isolated sequence will, upon execution, be given a message object that already contains the ``request-metadata`` context from the incoming http call, and will therefore act as an http proxy, making an http call identical to the one received by the ``RegurgitatorServlet``, except redirected to a new endpoint. this is useful for forwarding on any calls you wish not to mock / implement.
 
-If instead you wish the http-call step to make an independant call, then the step should be placed within an isolated sequence, and should be preceeded by ``create-request`` steps to set the necessary method, path and header metadata.
+If instead you wish the http-call step to make an independent call, then the step should be placed within an isolated sequence, and should be proceeded by ``create-request`` steps to set the necessary method, path and header metadata.
 
 ```json
 {
@@ -100,7 +100,7 @@ a create-http-response step returns a response from regurgitator, allowing ``res
 }
 ```
 
-this step is primarily a convenience step, agregating the following core config:
+this step is primarily a convenience step, aggregating the following core config:
 
 ```json
 {

@@ -1,3 +1,7 @@
+/*
+ * Copyright (C) 2017 Miles Talmey.
+ * Distributed under the MIT License (license terms are at http://opensource.org/licenses/MIT).
+ */
 package com.emarte.regurgitator.extensions.web;
 
 import com.emarte.regurgitator.core.*;
@@ -10,11 +14,11 @@ import static com.emarte.regurgitator.core.Log.getLog;
 import static com.emarte.regurgitator.extensions.web.ExtensionsWebConfigConstants.KEY;
 
 public class QueryParamProcessorJsonLoader implements JsonLoader<QueryParamProcessor> {
-	public static final Log log = getLog(QueryParamProcessorJsonLoader.class);
+    private static final Log log = getLog(QueryParamProcessorJsonLoader.class);
 
-	@Override
-	public QueryParamProcessor load(JSONObject jsonObject, Set<Object> allIds) throws RegurgitatorException {
-		log.debug("Loaded QueryParamProcessor");
-		return new QueryParamProcessor(loadMandatoryStr(jsonObject, KEY));
-	}
+    @Override
+    public QueryParamProcessor load(JSONObject jsonObject, Set<Object> allIds) throws RegurgitatorException {
+        log.debug("Loaded QueryParamProcessor");
+        return new QueryParamProcessor(loadMandatoryStr(jsonObject, KEY));
+    }
 }
