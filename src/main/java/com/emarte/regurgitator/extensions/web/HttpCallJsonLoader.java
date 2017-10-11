@@ -5,7 +5,8 @@
 package com.emarte.regurgitator.extensions.web;
 
 import com.emarte.regurgitator.core.*;
-import net.sf.json.*;
+import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
 
 import java.util.*;
 

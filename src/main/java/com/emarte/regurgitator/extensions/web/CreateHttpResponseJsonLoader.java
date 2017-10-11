@@ -10,7 +10,8 @@ import net.sf.json.JSONObject;
 import java.util.Set;
 
 import static com.emarte.regurgitator.core.JsonConfigUtil.loadOptionalStr;
-import static com.emarte.regurgitator.extensions.web.ExtensionsWebConfigConstants.*;
+import static com.emarte.regurgitator.extensions.web.ExtensionsWebConfigConstants.CONTENT_TYPE;
+import static com.emarte.regurgitator.extensions.web.ExtensionsWebConfigConstants.STATUS_CODE;
 
 public class CreateHttpResponseJsonLoader implements JsonLoader<CreateHttpResponse> {
     private final CreateResponseJsonLoader responseJsonLoader = new CreateResponseJsonLoader();
