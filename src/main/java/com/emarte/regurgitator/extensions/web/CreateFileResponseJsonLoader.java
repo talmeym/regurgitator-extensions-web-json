@@ -11,7 +11,7 @@ import java.util.Set;
 
 import static com.emarte.regurgitator.core.CoreConfigConstants.SOURCE;
 import static com.emarte.regurgitator.core.JsonConfigUtil.*;
-import static com.emarte.regurgitator.extensions.web.WebConfigConstants.PATH_PREFIX;
+import static com.emarte.regurgitator.extensions.web.ExtensionsWebConfigConstants.PATH_PREFIX;
 
 public class CreateFileResponseJsonLoader implements JsonLoader<CreateFileResponse> {
     private static final Log log = Log.getLog(CreateFileResponseJsonLoader.class);
