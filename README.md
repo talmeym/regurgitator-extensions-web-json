@@ -107,12 +107,18 @@ this step is primarily a convenience step, aggregating the following core config
     "kind": "create-parameter",
     "name": "response-metadata:content-type",
     "value": "application/json"
-},
+}
+```
+
+```json
 {
     "kind": "create-parameter",
     "name": "response-metadata:status-code",
     "value": "200"
-},
+}
+```
+
+```json
 {
     "kind": "create-response",
     "source": "response"
