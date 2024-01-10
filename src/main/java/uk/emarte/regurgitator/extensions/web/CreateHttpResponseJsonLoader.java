@@ -2,19 +2,19 @@
  * Copyright (C) 2017 Miles Talmey.
  * Distributed under the MIT License (license terms are at http://opensource.org/licenses/MIT).
  */
-package com.emarte.regurgitator.extensions.web;
+package uk.emarte.regurgitator.extensions.web;
 
-import com.emarte.regurgitator.core.CreateResponse;
-import com.emarte.regurgitator.core.CreateResponseJsonLoader;
-import com.emarte.regurgitator.core.JsonLoader;
-import com.emarte.regurgitator.core.RegurgitatorException;
 import net.sf.json.JSONObject;
+import uk.emarte.regurgitator.core.CreateResponse;
+import uk.emarte.regurgitator.core.CreateResponseJsonLoader;
+import uk.emarte.regurgitator.core.JsonLoader;
+import uk.emarte.regurgitator.core.RegurgitatorException;
 
 import java.util.Set;
 
-import static com.emarte.regurgitator.core.JsonConfigUtil.loadOptionalStr;
-import static com.emarte.regurgitator.extensions.web.ExtensionsWebConfigConstants.CONTENT_TYPE;
-import static com.emarte.regurgitator.extensions.web.ExtensionsWebConfigConstants.STATUS_CODE;
+import static uk.emarte.regurgitator.core.JsonConfigUtil.loadOptionalStr;
+import static uk.emarte.regurgitator.extensions.web.ExtensionsWebConfigConstants.CONTENT_TYPE;
+import static uk.emarte.regurgitator.extensions.web.ExtensionsWebConfigConstants.STATUS_CODE;
 
 public class CreateHttpResponseJsonLoader implements JsonLoader<CreateHttpResponse> {
     private final CreateResponseJsonLoader responseJsonLoader = new CreateResponseJsonLoader();
