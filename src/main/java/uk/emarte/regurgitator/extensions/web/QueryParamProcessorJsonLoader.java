@@ -2,18 +2,18 @@
  * Copyright (C) 2017 Miles Talmey.
  * Distributed under the MIT License (license terms are at http://opensource.org/licenses/MIT).
  */
-package com.emarte.regurgitator.extensions.web;
+package uk.emarte.regurgitator.extensions.web;
 
-import com.emarte.regurgitator.core.JsonLoader;
-import com.emarte.regurgitator.core.Log;
-import com.emarte.regurgitator.core.RegurgitatorException;
 import net.sf.json.JSONObject;
+import uk.emarte.regurgitator.core.JsonLoader;
+import uk.emarte.regurgitator.core.Log;
+import uk.emarte.regurgitator.core.RegurgitatorException;
 
 import java.util.Set;
 
-import static com.emarte.regurgitator.core.JsonConfigUtil.loadMandatoryStr;
-import static com.emarte.regurgitator.core.Log.getLog;
-import static com.emarte.regurgitator.extensions.web.ExtensionsWebConfigConstants.KEY;
+import static uk.emarte.regurgitator.core.JsonConfigUtil.loadMandatoryStr;
+import static uk.emarte.regurgitator.core.Log.getLog;
+import static uk.emarte.regurgitator.extensions.web.ExtensionsWebConfigConstants.KEY;
 
 public class QueryParamProcessorJsonLoader implements JsonLoader<QueryParamProcessor> {
     private static final Log log = getLog(QueryParamProcessorJsonLoader.class);
