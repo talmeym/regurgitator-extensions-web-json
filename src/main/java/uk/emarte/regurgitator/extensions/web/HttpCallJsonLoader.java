@@ -9,7 +9,6 @@ import net.sf.json.JSONObject;
 import uk.emarte.regurgitator.core.*;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
@@ -21,17 +20,17 @@ import static uk.emarte.regurgitator.extensions.web.ExtensionsWebConfigConstants
 
 public class HttpCallJsonLoader implements JsonLoader<Step> {
     private static final Log log = getLog(HttpCallJsonLoader.class);
-    private static final JsonLoaderUtil<JsonLoader<Step>> loaderUtil = new JsonLoaderUtil<JsonLoader<Step>>();
+    private static final JsonLoaderUtil<JsonLoader<Step>> loaderUtil = new JsonLoaderUtil<>();
 
     @Override
     public Step load(JSONObject jsonObject, Set<Object> allIds) throws RegurgitatorException {
         String id = loadId(jsonObject, allIds);
-        List<Step> steps = new ArrayList<Step>();
+        List<Step> steps = new ArrayList<>();
         JSONArray jsonArray = loadOptionalArray(jsonObject, STEPS);
 
         if(jsonArray != null) {
-            for(Iterator iterator = jsonArray.iterator(); iterator.hasNext(); ) {
-                JSONObject object = (JSONObject) iterator.next();
+            for (Object o : jsonArray) {
+                JSONObject object = (JSONObject) o;
                 steps.add(loaderUtil.deriveLoader(object).load(object, allIds));
             }
         }

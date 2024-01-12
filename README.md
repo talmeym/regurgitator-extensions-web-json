@@ -106,13 +106,19 @@ this step is primarily a convenience step, aggregating the following core config
 {
     "kind": "create-parameter",
     "name": "response-metadata:content-type",
-    "value": "application/json",
-},
+    "value": "application/json"
+}
+```
+
+```json
 {
     "kind": "create-parameter",
     "name": "response-metadata:status-code",
     "value": "200"
-},
+}
+```
+
+```json
 {
     "kind": "create-response",
     "source": "response"
@@ -121,7 +127,7 @@ this step is primarily a convenience step, aggregating the following core config
 
 ### create-file-response
 
-a create-file-response step returns a response from regurgitator, with it's contents read from a file on the classpath, with the name of the file sourced from a parameter value. this is useful when you receive an http request for a file, and you wish to simply return the contents of that file, if it exists.
+a create-file-response step returns a response from regurgitator, with its contents read from a file on the classpath, with the name of the file sourced from a parameter value. this is useful when you receive an http request for a file, and you wish to simply return the contents of that file, if it exists.
 
 ```json
 {
