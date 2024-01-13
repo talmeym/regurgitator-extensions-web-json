@@ -2,9 +2,9 @@
 
 regurgitator is a modular, light-weight, extendable java-based processing framework designed to 'regurgitate' canned or clever responses to incoming requests; useful for mocking or prototyping services.
 
-start your reading here: [regurgitator-all](http://github.com/talmeym/regurgitator-all#regurgitator)
+start your reading here: [regurgitator-all](https://talmeym.github.io/regurgitator-all#regurgitator)
 
-read more about regurgitator in json here: [regurgitator-core-json](http://github.com/talmeym/regurgitator-core-json#json-configuration-of-regurgitator)
+read more about regurgitator in json here: [regurgitator-core-json](https://talmeym.github.io/regurgitator-core-json#json-configuration-of-regurgitator)
 
 ## extension web steps in json
 
