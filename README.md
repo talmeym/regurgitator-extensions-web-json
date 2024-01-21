@@ -6,6 +6,8 @@ start your reading here: [regurgitator-all](https://talmeym.github.io/regurgitat
 
 read more about regurgitator in json here: [regurgitator-core-json](https://talmeym.github.io/regurgitator-core-json#json-configuration-of-regurgitator)
 
+[``apidocs``](https://regurgitator.emarte.uk/apidocs/regurgitator-extensions-web-json/0.1.2/)
+
 ## extension web steps in json
 
 ### http-call 
